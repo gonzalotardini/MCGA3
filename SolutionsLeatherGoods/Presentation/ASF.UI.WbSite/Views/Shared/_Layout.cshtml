@@ -4,6 +4,9 @@
 @* no-js - The no JavaScript class is removed by modernizr if JavaScript is available. *@
 <html class="no-js" lang="en">
 <head @(ViewBag.OpenGraph == null ? null : Html.OpenGraphNamespace((OpenGraphMetadata)ViewBag.OpenGraph))>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Content/ProductCart/productCart.js"></script>
+
     @* The order of the tags in the head is important for best performance and compatibility. *@
     @* charset - The character encoding of the document. *@
     <meta charset="utf-8">
@@ -13,11 +16,9 @@
         characters. The site name appears at the end for better SEO. *@
     <title>@ViewBag.Title - @Application.Name</title>
 
-
     @* Icons & Platform Specific Settings (See http://rehansaeed.com/internet-favicon-madness/ for detailed
         information). The order of these icons is very important. FireFox has a bug in it which can cause problems if
         the order is changed. *@
-
     @* Apple Icons - See https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Introduction.html#//apple_ref/doc/uid/30001261-SW1 *@
     @* apple-touch-icon-57x57.png - Android Stock Browser and non-Retina iPhone and iPod Touch *@
     <link rel="apple-touch-icon" sizes="57x57" href="/content/icons/apple-touch-icon-57x57.png">
@@ -37,7 +38,6 @@
     <link rel="apple-touch-icon" sizes="152x152" href="/content/icons/apple-touch-icon-152x152.png">
     @* apple-touch-icon-180x180.png - iPad and iPad mini (with 2× display) iOS ≥ 8 *@
     <link rel="apple-touch-icon" sizes="180x180" href="/content/icons/apple-touch-icon-180x180.png">
-
     @* apple-mobile-web-app-title - The name of the application if pinned to the IOS start screen. *@
     @* <meta name="apple-mobile-web-app-title" content=""> *@
     @* apple-mobile-web-app-capable - Hide the browsers user interface on IOS, when the app is run in 'stand-alone'
@@ -47,7 +47,6 @@
     @* apple-mobile-web-app-status-bar-style - default/black/black-translucent Styles the IOS status bar. Using
         black-translucent makes it transparent and overlays it on top of your site, so make sure you have enough margin. *@
     @* <meta name="apple-mobile-web-app-status-bar-style" content="black"> *@
-
     @* Apple Startup Images - These splash screen images are only shown if apple-mobile-web-app-capable is set to true.
         See https://gist.github.com/tfausak/2222823 *@
     @* apple-touch-startup-image-1536x2008.png - iOS 6 & 7 iPad (retina, portrait) *@
@@ -64,7 +63,6 @@
     @* <link rel="apple-touch-startup-image" href="/content/icons/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)"> *@
     @* apple-touch-startup-image-320x460.png - iOS 6 iPhone *@
     @* <link rel="apple-touch-startup-image" href="/content/icons/apple-touch-startup-image-320x460.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)"> *@
-
     @* favicon-32x32.png - For Safari on Mac OS. *@
     <link rel="icon" type="image/png" href="/content/icons/favicon-32x32.png" sizes="32x32">
     @* favicon-192x192.png - For Android Chrome M36 to M38 this icon is used. M39+ uses the manifest.json file specified below. *@
@@ -73,7 +71,6 @@
     <link rel="icon" type="image/png" href="/content/icons/favicon-96x96.png" sizes="96x96">
     @* favicon-16x16.png - The classic favicon, displayed in the tabs. *@
     <link rel="icon" type="image/png" href="/content/icons/favicon-16x16.png" sizes="16x16">
-
     @* Android/Chrome *@
     @* manifest-json - The location of the browser configuration file. It contains locations of icon files, name of the
         application and default device screen orientation. Note that the name field is mandatory.
@@ -84,9 +81,7 @@
     <meta name="theme-color" content="#1E1E1E">
     @* mobile-web-app-capable - Run Android/Chrome version M31 to M38 in stand-alone mode, hiding the browser chrome. *@
     @* <meta name="mobile-web-app-capable" content="yes"> *@
-
     @* Windows 7 Taskbar - This depends on your site, so no code here. See http://www.buildmypinnedsite.com/windows7 *@
-
     @* Windows 8 IE10 *@
     @* application-name - The name of the application if pinned to the start screen. *@
     @* <meta name="application-name" content=""> *@
@@ -94,12 +89,10 @@
     @* <meta name="msapplication-TileColor" content="#5cb95c"> *@
     @* msapplication-TileImage - The tile image. *@
     @* <meta name="msapplication-TileImage" content="/content/icons/mstile-144x144.png"> *@
-
     @* Windows 8.1/10 IE11/Edge - See http://www.buildmypinnedsite.com *@
     @* msapplication-config - The location of the browser configuration file. This is not required if the
         browserconfig.xml file is at the root of the site. *@
     @* <meta name="msapplication-config" content="@Url.RouteUrl(HomeControllerRoute.GetBrowserConfigXml)"> *@
-    
 
     @* Custom Fonts - If you are using custom fonts. Consider using the Google Web Fonts Loader in async mode.
         See https://github.com/typekit/webfontloader. *@
@@ -107,7 +100,6 @@
     <meta name="x-font-awesome-stylesheet-fallback-test" class="fa">
     @Styles.Render("~/Content/fa")
     @Scripts.Render("~/bundles/modernizr")
-
 
     @* Description - Used by search engines. Aim for more than 160 characters. *@
     <meta name="description" content="@ViewBag.Description">
@@ -143,39 +135,65 @@
     @* Atom 1.0 Feed - Link to the. This enables the 'Subscribe to this page' button in FireFox. *@
     <link href="@Url.RouteUrl(HomeControllerRoute.GetFeed)" rel="alternate" title="@Application.Name Feed" type="application/atom+xml">
 
-
     @* OpenSearch - (See http://www.hanselman.com/blog/CommentView.aspx?guid=50cc95b1-c043-451f-9bc2-696dc564766d and http://www.opensearch.org) *@
     <link href="@Url.RouteUrl(HomeControllerRoute.GetOpenSearchXml).TrimEnd('/')" rel="search" title="Architecture Solutions Foundation Search" type="application/opensearchdescription+xml">
 
-
     @* You can use the head section to render additional meta tags. *@
     @RenderSection("head", required: false)
-
     <style>
-        #Nav{
+        /*#Nav{
             background-color:white;
+        }*/
+
+        #Nav2 {
+            background-color: #930606;
+            text-align: center;
         }
 
-        #Nav2{
-            background-color:#930606;
-            text-align:center;
+        .container-fluid {
+            text-align: center;
+            width: 25cm;
         }
 
-        .container-fluid{
-           text-align:center;
-        }
-        
-         .navbar-nav{
-            display:inline-block;
-            float:none;
-            color:white;
+        .navbar-nav {
+            display: inline-block;
+            float: none;
+            color: white;
         }
 
-         #a{
-             color:white;
-             font-weight:bold;
-         }
+        #a {
+            color: white;
+            font-weight: bold;
+        }
+
+        .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+            background-color: #000000;
+        }
+
+
+        ul.navbar-nav a:hover {
+            color: #fff !important;
+        }
+
+        #cart {
+            position: center;
+            padding-top: 0.5cm;
+        }
+
+        #cartContent {
+            z-index: 100;
+            text-align: center;
+            background-color: ghostwhite;
+            border-color: black;
+            border: solid;
+            position: absolute;
+            left: 30cm;
+            top: 3cm;
+            width: 8cm;
+            display: none;
+        }
     </style>
+
 </head>
 <body>
     @* Skip to main content link for people who use screen readers. sr-only makes this only visible to screen readers.
@@ -192,22 +210,24 @@
                 </button>
                 <a class="navbar-brand" role="banner" href="@Url.RouteUrl(HomeControllerRoute.GetIndex)"><span class="fa fa-star"></span> @Application.Name</a>
             </div>
-            <div class="navbar-collapse collapse" >
+            <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a id="a" href="@Url.RouteUrl(HomeControllerRoute.GetAbout)"><span aria-hidden="true" class="fa fa-users"></span> About</a></li>
                     <li><a href="@Url.RouteUrl(HomeControllerRoute.GetContact)"><span aria-hidden="true" class="fa fa-phone"></span> Contact</a></li>
-                    <li><a href="@Url.RouteUrl(HomeControllerRoute.GetFeed)"><span aria-hidden="true" class="fa fa-rss"></span> RSS</a></li>                   
-
+                    <li><a href="@Url.RouteUrl(HomeControllerRoute.GetFeed)"><span aria-hidden="true" class="fa fa-rss"></span> RSS</a></li>
                     <li class="dropdown">
-                        <a class="dropdown-toggle, fa fa-cog" data-toggle="dropdown" href="#">Administrar
+                        <a class="dropdown-toggle, fa fa-cog" data-toggle="dropdown" href="#">
+                            Administrar
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a> @Html.ActionLink("Categorias", "Index", "Category")</a></li>
-                            <li><a> @Html.ActionLink("Paises","Index","Country")</a></li>
-                            <li><a href="#">Page 1-3</a></li>
+                            <li><a> @Html.ActionLink("Paises", "Index", "Country")</a></li>
+                            <li><a> @Html.ActionLink("Clientes", "Index", "Client")</a></li>
+                            <li><a> @Html.ActionLink("Proveedores", "Index", "Dealer")</a></li>
+                            <li><a> @Html.ActionLink("Productos", "Create", "Product")</a></li>
+                            <li><a> @Html.ActionLink("pdetail", "ProductDetail", "Product")</a></li>
                         </ul>
-
                         @if (HttpContext.Current.IsDebuggingEnabled)
                         {
                             // if <compilation debug="true"> is set in Web.config.
@@ -220,46 +240,49 @@
                                 <li><a href="/trace.axd"><span aria-hidden="true" class="fa fa-heart"></span> Tracing</a></li>
                             </ul>
                         </li>
-                    }
+                        }
+                    </ul>
+
+
+                    @Html.Partial("_LoginPartial")
+                    @*<form action="@Url.RouteUrl(HomeControllerRoute.GetSearch)" class="navbar-form navbar-right" method="get" role="search">
+                            <div class="input-group">
+                                <input aria-label="Search" class="form-control" maxlength="2048" name="query" placeholder="Search" title="Search" type="text">
+                                <div class="input-group-btn">
+                                    <button aria-label="Search" class="btn btn-default" type="submit"><span class="fa fa-search"></span></button>
+                                </div>
+                            </div>
+                        </form>*@
+                </div>
+            </div>
+        </nav>
+        @* div id="main" - The main container for the page. Change this to the HTML5 main tag when it gains more browser support. *@
+        @*Second NavBar*@
+        <nav class="navbar navbar-default" id="Nav2">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">@*WebSiteName*@</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a id="a" href="@Url.Action("Index","Home")">Home</a></li>
+                    <li><a id="a" href="@Url.Action("Index","Product")">Products</a></li>
+                    <li><a id="a" href="#">Page 2</a></li>
+                    <li><a id="a" href="#">Page 3</a></li>
                 </ul>
-
-                
-
-
-                @Html.Partial("_LoginPartial")
-                @*<form action="@Url.RouteUrl(HomeControllerRoute.GetSearch)" class="navbar-form navbar-right" method="get" role="search">
-                    <div class="input-group">
-                        <input aria-label="Search" class="form-control" maxlength="2048" name="query" placeholder="Search" title="Search" type="text">
-                        <div class="input-group-btn">
-                            <button aria-label="Search" class="btn btn-default" type="submit"><span class="fa fa-search"></span></button>
-                        </div>
-                    </div>
-                </form>*@
+                <ul class="nav navbar-nav navbar-right" id="cart">
+                    <li style="font-size:1.5em;" id="carticon" class="glyphicon glyphicon-shopping-cart my-cart-icon"></li>
+                </ul>
             </div>
+
+        </nav>
+        <div id="cartContent" class="jumbotron">
+            <ul id="lista"></ul>
+
+            <a class="btn btn-success" href=@Url.Action("Index", "Cart")>View Cart</a>
         </div>
-    </nav>
 
-    @* div id="main" - The main container for the page. Change this to the HTML5 main tag when it gains more browser support. *@
-
-    @*Second NavBar*@
-    <nav class="navbar navbar-default" id="Nav2">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">@*WebSiteName*@</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li><a id="a" href="#">Home</a></li>
-                <li><a id="a" href="#">Page 1</a></li>
-                <li><a id="a" href="#">Page 2</a></li>
-                <li><a id="a" href="#">Page 3</a></li>
-            </ul>
+        <div id="main" class="container body-content" role="main">
         </div>
-    </nav>
-   
-
-
-    <div id="main" class="container body-content" role="main">
-
 
         <!--[if lt IE 8]>
             <div class="alert alert-warning" role="alert">
@@ -271,13 +294,12 @@
         <footer role="contentinfo">
             <p>&copy; @DateTime.Now.Year - @Application.Name</p>
         </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/jqueryvalunobtrusive")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/site")
-    @RenderSection("scripts", required: false)
-</body>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/jqueryvalunobtrusive")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/site")
+        @RenderSection("scripts", required: false)
+    </body>
 </html>
