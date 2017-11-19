@@ -1,0 +1,91 @@
+﻿@model ASF.Data.DbContext.Product
+@{
+    ViewBag.Title = "ProductDetail";
+}
+<style>
+    #container {
+        text-align: center;
+        padding: 2cm;
+    }
+
+    img {
+        position: relative;
+        float: left;
+        border-style: solid;
+        border-color: black;
+    }
+
+    .jumbotron {
+        background-color: white;
+    }
+
+    #btn {
+        margin-left: 0.7cm;
+    }
+</style>
+@using (Html.BeginForm("UpdateCart", "Cart", FormMethod.Post))
+{
+    <div class="form-horizontal">
+        <div class=" center-block">
+            <div class="row" id="content">
+                <div class="col-md-8 col-md-offset-2">
+                    <div id="container" class="thumbnail container">
+                        <img id="imagen" src="@Url.Action("Images", "Product", new { id = Model.Id })" width="400" height="400" />
+                        <div class="caption" style="padding-top:2cm">
+                            <h2 id="title" style="font-weight:bold">@Model.Title</h2>
+                            <h2 id="price">$@Model.Price</h2>
+                        </div>
+                        <div class="ratings">
+                            @for (int i = 0; i < (Model.AvgStars); i++)
+                            {
+                                <span class="fa fa-star gold"></span>
+
+                            }
+                        </div>
+                        <br />
+                        <div class="space-ten"></div>
+
+                        <div class="btn-ground text-center form-group">
+                            <input type="number" value="1" name="cantidad" id="cantidad" style="font-size:medium;font-weight:bold; width:50px;height:42px;text-align:center;border:1px solid #CCCCCC" />
+                            @*<button id="btn" data-toggle="modal" data-target="#myModal" type="submit" value="UpdateCart" class="btn-lg btn-primary"><i class="fa fa-shopping-cart"></i> Add To Cart</button>*@
+                            <div style="display:none" class="form-group">
+                                <input style="display:none" type="number" name="productId" value=@Model.Id />
+                            </div>
+                            <div class="form-group">
+                                <input style="display:none" name="price" value=@Model.Price />
+                            </div>
+
+                            <input type="submit" value="Add To Cart" class="btn-lg btn-primary" />
+
+                        </div>
+
+
+                        <div class="space-ten"></div>
+                        <div class="row col-xs-12" style="position:static">
+                            <h2 class="jumbotron">Detalles</h2>
+                            <p style="font-size:medium">@Model.Description</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Modal Header</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>This is a large modal.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
