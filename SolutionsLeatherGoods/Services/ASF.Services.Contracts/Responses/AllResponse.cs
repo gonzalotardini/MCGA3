@@ -24,6 +24,8 @@ namespace ASF.Services.Contracts
         [DataMember]
         public List<Country> ResultCountry { get; set; }
 
+        [DataMember]
+        public List<Dealer> ResultDealer { get; set; }
 
         [DataMember]
         public List<Entities.Product> ResultProduct { get; set; }
