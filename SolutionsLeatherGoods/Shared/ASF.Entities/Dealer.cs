@@ -51,6 +51,9 @@ namespace ASF.Entities
         [DisplayName("Category Id")]
         public int CategoryId { get; set; }
 
+        [DataMember]
+        [DisplayName("Category desc")]
+        public string CategoryDesc { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -58,6 +61,9 @@ namespace ASF.Entities
         [DisplayName("Country Id")]
         public int CountryId { get; set; }
 
+        [DataMember]
+        [DisplayName("Country desc")]
+        public string Countrydesc { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -107,6 +113,6 @@ namespace ASF.Entities
         [DisplayName("Changed By")]
         public int? ChangedBy { get; set; }
 
-        
+
     }
 }

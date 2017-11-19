@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "Create4";
+}
+
+@using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-horizontal container center-block">
+        <h4>Product</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-3">Titulo</label>
+            <div class="col-md-6">
+                <input class="form-control" type="text" name="Product.Title" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3">Descripcion</label>
+            <div class="col-md-6">
+                <input class="form-control" type="text" name="Product.Description" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3">Dealer</label>
+            <div class="col-md-6">
+
+                @Html.DropDownList("Product.DealerId", new SelectList(ViewBag.dealer, "Id", "Description"), new { @class = "form-control col-md-2" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3">Imagen</label>
+            <div class="col-md-6">
+                <input type="file" name="file" class="file" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3">Precio</label>
+            <div class="col-md-6">
+                <input class="form-control" type="text" name="Product.Price" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3">Qty Sold</label>
+            <div class="col-md-6">
+                <input class="form-control" type="text" name="Product.QuantitySold" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3">Starts</label>
+            <div class="col-md-6">
+                <input class="form-control" type="text" name="Product.AvgStars" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3">Created On</label>
+            <div class="col-md-6">
+                <input class="form-control" type="date" name="Product.CreatedOn" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3">ChangedOn</label>
+            <div class="col-md-6">
+                <input class="form-control" type="date" name="Product.ChangedOn" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12 center-block">
+                <input type="submit" value="Create" class="btn btn-success center-block" />
+            </div>
+        </div>
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+
+
+}
+
+
+
+
