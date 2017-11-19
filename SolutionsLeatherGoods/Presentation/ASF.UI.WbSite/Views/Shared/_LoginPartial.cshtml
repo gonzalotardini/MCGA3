@@ -5,20 +5,68 @@
     {
         @Html.AntiForgeryToken()
 
+
+        <style>
+            li {
+                color: white;
+            }
+
+            #cart {
+                position: center;
+                padding-top: 0.5cm;
+            }
+
+            #carticon {
+                /*padding-top: 0.4cm;
+                margin-right: 1cm;*/
+            }
+
+            #cartContent {
+                z-index: 100;
+                text-align: center;
+                background-color: ghostwhite;
+                border-color: black;
+                border: solid;
+                position: absolute;
+                left: 30cm;
+                top: 1.5cm;
+                width: 8cm;
+                display: none;
+            }
+        </style>
+        
         <ul class="nav navbar-nav navbar-right">
-            <li>
-                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", new { Area = "" }, htmlAttributes: new { title = "Manage" })
+            <li style="font-size:1.5em;" id="carticon" class="glyphicon glyphicon-shopping-cart my-cart-icon"></li>
+            <li id="loginLink">
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", null, new { style = "color: white" })
             </li>
             <li>
-                @Html.ActionLink("LogOff ", "LogOff", "Account", new { Area = "" }, htmlAttributes: new { title = "LogOff" })
+                @Html.ActionLink("LogOff ", "LogOff", "Account", null, new { style = "color: white" })
             </li>
+
+
         </ul>
+        <div id="cartContent" class="jumbotron">
+            <ul id="lista"></ul>
+
+            <a class="btn btn-success" href=@Url.Action("Index", "Cart")>View Cart</a>
+
+        </div>
     }
 }
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", new { area = "" }, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", new { area = "" }, htmlAttributes: new { id = "loginLink" })</li>
+
+        @*<li>@Html.ActionLink("Registrar", "Register", "Account", new { area = "" },htmlAttributes: new { id = "registerLink" } )</li>
+
+            <li>@Html.ActionLink("Log in", "Login", "Account", new { area = "" }, htmlAttributes: new { id = "loginLink" })</li>*@
+
+
+        <li><a style="color:white" href="/account/register/" id="registerLink"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a style="color:white" href="/account/login" id="loginLink"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+
+
     </ul>
 }
