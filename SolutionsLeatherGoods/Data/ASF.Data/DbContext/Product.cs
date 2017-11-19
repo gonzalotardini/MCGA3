@@ -17,6 +17,7 @@ namespace ASF.Data.DbContext
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
+            this.CartItem = new HashSet<CartItem>();
             this.OrderDetail = new HashSet<OrderDetail>();
             this.Rating = new HashSet<Rating>();
         }
@@ -35,6 +36,8 @@ namespace ASF.Data.DbContext
         public System.DateTime ChangedOn { get; set; }
         public Nullable<int> ChangedBy { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CartItem> CartItem { get; set; }
         public virtual Dealer Dealer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetail { get; set; }

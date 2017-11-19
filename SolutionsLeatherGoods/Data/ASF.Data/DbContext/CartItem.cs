@@ -23,7 +23,9 @@ namespace ASF.Data.DbContext
         public Nullable<int> CreatedBy { get; set; }
         public System.DateTime ChangedOn { get; set; }
         public Nullable<int> ChangedBy { get; set; }
+        public string Pdescripcion { get; set; }
     
         public virtual Cart Cart { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

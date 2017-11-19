@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CartDAC.cs" />
     <Compile Include="CategoryDAC.cs" />
     <Compile Include="CountryDAC.cs" />
     <Compile Include="DataAccessComponent.cs" />
@@ -85,6 +86,9 @@
       <DependentUpon>DbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="DbContext\Country.cs">
+      <DependentUpon>DbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\database_firewall_rules.cs">
       <DependentUpon>DbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="DbContext\DbContext.Context.cs">
@@ -133,6 +137,15 @@
       <DependentUpon>DbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="DbContext\Setting.cs">
+      <DependentUpon>DbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>DbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\sp_helpdiagrams_Result.cs">
+      <DependentUpon>DbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\sysdiagrams.cs">
       <DependentUpon>DbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="DealerDAC.cs" />

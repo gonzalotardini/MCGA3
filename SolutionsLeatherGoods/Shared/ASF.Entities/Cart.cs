@@ -34,8 +34,8 @@ namespace ASF.Entities
         /// 
         /// </summary>
         [DataMember]
-        [DisplayName("Cookie")]
-        public string Cookie { get; set; }
+        [DisplayName("IdUser")]
+        public string IdUser { get; set; }
 
         /// <summary>
         /// 
@@ -86,6 +86,6 @@ namespace ASF.Entities
         [DisplayName("Changed By")]
         public int? ChangedBy { get; set; }
 
-        
+
     }
 }

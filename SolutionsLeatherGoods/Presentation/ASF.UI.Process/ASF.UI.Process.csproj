@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CartProcess.cs" />
     <Compile Include="CategoryProcess.cs" />
     <Compile Include="CountryProcess.cs" />
     <Compile Include="DealerProcess.cs" />
@@ -65,6 +66,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Business\ASF.Business\ASF.Business.csproj">
+      <Project>{1290a947-f5d1-45b8-b19a-e0f9185de46b}</Project>
+      <Name>ASF.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\ASF.Data\ASF.Data.csproj">
+      <Project>{422eb420-d9bc-4286-9e35-e9e3058defe8}</Project>
+      <Name>ASF.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Services\ASF.Services.Contracts\ASF.Services.Contracts.csproj">
       <Project>{D51CA5E5-FB1D-478E-9B11-A7D0BE066828}</Project>
       <Name>ASF.Services.Contracts</Name>
