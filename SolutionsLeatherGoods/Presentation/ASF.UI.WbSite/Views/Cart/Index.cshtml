@@ -1,7 +1,13 @@
 ﻿@model ASF.UI.Process.CartCompleta
 @{
     ViewBag.Title = "Index";
+    var total = 0;
 }
+
+<style>
+   
+</style>
+
 
 <div class="container">
     <div class="row">
@@ -17,9 +23,13 @@
                         <th> </th>
                     </tr>
                 </thead>
-                <tbody>     
+                <tbody>  
+                   
                 @foreach (var item in Model.detalle)
                 {
+                    var subtotal = item.Price * item.Quantity;
+                  
+                    total = total +Convert.ToInt32(subtotal);
                     <tr>
                         <td class="col-sm-8 col-md-2">
                             <br />
@@ -33,7 +43,7 @@
                             <br />
                             <br />
                             <div class="media-body">
-                                <h5 class="media-heading">@item.Pdescripcion</h5>
+                                <h4 class="media-heading">@item.Pdescripcion</h4>
                             </div>
                         </td>
                        
@@ -41,79 +51,51 @@
                             <br />
                             <br />
                             
-                            <input type="number" class="form-control" id="exampleInputEmail1" value="3">
-                        </td>
-                        <td class="col-sm-1 col-md-1 text-center">
-                            <br />
-                        <strong>@item.Price</strong>
+                            <input type="number" class="form-control" id="exampleInputEmail1" value=@item.Quantity>
                         </td>
                         <td class="col-sm-1 col-md-1 text-center">
                             <br />
                             <br />
-                        <strong>$14.61</strong>
+                        <strong>$@item.Price</strong>
+                        </td>
+                        <td class="col-sm-1 col-md-1 text-center">
+                            <br />
+                            <br />
+                            
+                        <strong>$@subtotal</strong>
                         </td>
                         <td class="col-sm-1 col-md-1">
                             <br />
                             <br />
                             <button type="button" class="btn btn-danger">
                               
-                                <span class="glyphicon glyphicon-remove"></span> Remove
+                                <span class="fa fa-remove"></span> Remove
                             </button>
                         </td>
                     </tr>
                 }
-                    @*<tr>
-                        <td class="col-md-6">
-                            <div class="media">
-                                <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;"> </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><a href="#">Product name</a></h4>
-
-                                </div>
-                            </div>
-                        </td>
-                        <td class="col-md-1" style="text-align: center">
-                            <input type="email" class="form-control" id="exampleInputEmail1" value="2">
-                        </td>
-                        <td class="col-md-1 text-center"><strong>$4.99</strong></td>
-                        <td class="col-md-1 text-center"><strong>$9.98</strong></td>
-                        <td class="col-md-1">
-                            <button type="button" class="btn btn-danger">
-                                <span class="glyphicon glyphicon-remove"></span> Remove
-                            </button>
-                        </td>
-                    </tr>*@
-                    @*<tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h5>Subtotal</h5></td>
-                        <td class="text-right"><h5><strong>$24.59</strong></h5></td>
-                    </tr>*@
-                    @*<tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-
-                    </tr>*@
                     <tr>
                         <td>   </td>
                         <td>   </td>
                         <td>   </td>
                         <td><h3>Total</h3></td>
-                        <td class="text-right"><h3><strong>$31.53</strong></h3></td>
+                        <td class="text-right"><h3><strong>$@total</strong></h3></td>
                     </tr>
                     <tr>
                         <td>   </td>
                         <td>   </td>
                         <td>   </td>
                         <td>
-                            <button type="button" class="btn btn-default">
-                                <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
-                            </button>
+                           
+                            @*<a href="@Url.Action("Index", "Product")" class="btn btn-primary">                               
+                                <span id="span" class="fa fa-shopping-cart"> Continue Shopping</span>
+                            </a>*@
+                            @Html.ActionLink("Continue Shopping", "Index", "Product",null, new { @class = "btn btn-info" });
+
+                            @*<li><a id="a" href="@Url.Action("Index","Product")"><span aria-hidden="true" class="btn btn-success fa-shopping-cart"></span> ContinueShopping</a></li>*@
                         </td>
                         <td>
-                            <button type="button" class="btn btn-success">
+                            <button type="button" hr class="btn btn-success">
                                 Checkout <span class="glyphicon glyphicon-play"></span>
                             </button>
                         </td>

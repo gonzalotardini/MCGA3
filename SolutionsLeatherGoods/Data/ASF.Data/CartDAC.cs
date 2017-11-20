@@ -123,7 +123,7 @@ namespace ASF.Data
                 cartItem.Id = i.Id;
                 cartItem.CartId = i.CartId;
                 cartItem.ProductId = i.ProductId;
-                cartItem.Pdescripcion = i.Product.Description;
+                cartItem.Pdescripcion = i.Product.Title;
                 cartItem.Price = i.Price;
                 cartItem.Quantity = i.Quantity;
                 cartItem.CreatedOn = i.CreatedOn;

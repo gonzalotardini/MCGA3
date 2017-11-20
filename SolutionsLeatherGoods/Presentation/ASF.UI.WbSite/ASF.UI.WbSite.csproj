@@ -409,6 +409,7 @@
     <Content Include="Content\img\1.jpg" />
     <Content Include="Content\img\2.jpg" />
     <Content Include="Content\img\3.jpg" />
+    <Content Include="Scripts\fb.js" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -424,6 +425,7 @@
     <None Include="NWebsecConfig\HttpHeaderSecurityModuleConfig.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="ReadMe.html" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Content\bootstrap\site.css">
