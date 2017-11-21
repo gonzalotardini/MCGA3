@@ -32,6 +32,14 @@ namespace ASF.UI.WbSite.Controllers
             return RedirectToAction("Index", "Product");
         }
 
+        public ActionResult Remove(int id)
+        {
+            var cartProcess = new CartProcess();
+            cartProcess.Remove(id);
+
+            return RedirectToAction("Index", "Cart");
+        }
+
         public ActionResult Images(int id)
         {
             var context = new LeatherGoodsEntities();

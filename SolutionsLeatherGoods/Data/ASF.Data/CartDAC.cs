@@ -137,6 +137,16 @@ namespace ASF.Data
             return listaItems;
         }
 
+        public void RemoveItem(int idr)
+        {
+            var context = new LeatherGoodsEntities();
+
+            var item = context.CartItem.First(i => i.Id == idr);
+            context.CartItem.Remove(item);
+            context.SaveChanges();
+
+        }
+
 
 
 

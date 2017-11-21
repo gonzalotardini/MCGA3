@@ -35,5 +35,11 @@ namespace ASF.UI.Process
             cartCompleta.detalle = listaDetalle;
             return cartCompleta;
         }
+
+        public void Remove (int id)
+        {
+            var cartBll = new CartBusiness();
+            cartBll.Remove(id); 
+        }
     }
 }

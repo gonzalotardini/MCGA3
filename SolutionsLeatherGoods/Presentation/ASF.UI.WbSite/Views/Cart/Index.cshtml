@@ -15,9 +15,9 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Product</th>
-                        <th>Descripcion</th>                        
-                        <th>Quantity</th>
+                        <th class="text-center">Product</th>
+                        <th class="text-left">Descripcion</th>                        
+                        <th class="text-center">Quantity</th>
                         <th class="text-center">Price</th>
                         <th class="text-center">Total</th>
                         <th> </th>
@@ -33,47 +33,51 @@
                     <tr>
                         <td class="col-sm-8 col-md-2">
                             <br />
-                            <div class="media">
-                                <img src="@Url.Action("Images", "Cart", new { id = item.ProductId })" width="90" height="90" />
+                            <div>
+                                <img src="@Url.Action("Images", "Cart", new { id = item.ProductId })" style="text-align:center; vertical-align:middle" width="90" height="90" />
                             </div>
                               
                         </td>
                         <td>
                             <br />
                             <br />
-                            <br />
-                            <div class="media-body">
-                                <h4 class="media-heading">@item.Pdescripcion</h4>
+                          
+                            <div >
+                                <h4>@item.Pdescripcion</h4>
                             </div>
                         </td>
                        
-                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                        <td class="col-sm-1 col-md-1" style="text-align: center" height="160.56">
                             <br />
                             <br />
                             
-                            <input type="number" class="form-control" id="exampleInputEmail1" value=@item.Quantity>
+                            <h5><strong>@item.Quantity</strong></h5>
                         </td>
                         <td class="col-sm-1 col-md-1 text-center">
                             <br />
                             <br />
-                        <strong>$@item.Price</strong>
+                            <h4> <strong>$@item.Price</strong></h4>
                         </td>
                         <td class="col-sm-1 col-md-1 text-center">
                             <br />
-                            <br />
-                            
-                        <strong>$@subtotal</strong>
+                            <br />                            
+                            <h5><strong>$@subtotal</strong></h5>
                         </td>
                         <td class="col-sm-1 col-md-1">
                             <br />
-                            <br />
-                            <button type="button" class="btn btn-danger">
+                            <br />                          
+                            @*@Html.ActionLink("Detalles", "ProductDetail", new { id = item.Id }, new { @class = "btn btn-primary" })*@
+                            <a href="@Url.Action("Remove", "Cart",new { id = item.Id})", style="font-size:26px" class="fa fa-remove">                                
+                            </a>
+
+                            @*<button type="button" class="btn btn-danger">
                               
                                 <span class="fa fa-remove"></span> Remove
-                            </button>
+                            </button>*@
                         </td>
                     </tr>
                 }
+                    
                     <tr>
                         <td>   </td>
                         <td>   </td>

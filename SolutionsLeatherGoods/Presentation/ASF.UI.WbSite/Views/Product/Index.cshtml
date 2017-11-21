@@ -39,9 +39,10 @@
                         <img src="@Url.Action("Images", "Product", new { id = item.Id })" width="200" height="200" />
                         <div class="caption">
                             <h4 name="title">@Html.ActionLink(item.Title, "ProductDetail", new { id = item.Id })</h4>
-                            $
-                            @Html.DisplayFor(modelItem => item.Price)
-                            @Html.DisplayFor(modelItem => item.Description)
+                            
+                            <h3>$@item.Price</h3>
+                            @*@Html.DisplayFor(modelItem => item.Price)*@
+                            @*@Html.DisplayFor(modelItem => item.Description)*@
                         </div>
                         <div class="ratings">
                             <p>

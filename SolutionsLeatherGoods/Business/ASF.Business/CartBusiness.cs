@@ -61,6 +61,13 @@ namespace ASF.Business
             return total;
         }
 
+        public void Remove(int id)
+        {
+            var cartDac = new CartDAC();
+
+            cartDac.RemoveItem(id);
+        }
+
 
     }
 }
