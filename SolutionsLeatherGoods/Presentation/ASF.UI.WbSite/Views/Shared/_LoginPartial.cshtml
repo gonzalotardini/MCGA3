@@ -33,6 +33,11 @@
                 width: 8cm;
                 display: none;
             }
+
+            #loginLink {
+                height:20px;
+                
+            }
         </style>
         
         <ul class="nav navbar-nav navbar-right">
@@ -63,8 +68,8 @@ else
             <li>@Html.ActionLink("Log in", "Login", "Account", new { area = "" }, htmlAttributes: new { id = "loginLink" })</li>*@
 
 
-        <li><a style="color:white" href="/account/register/" id="registerLink"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a style="color:white" href="/account/login" id="loginLink"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a style="color:white" href="/account/register/" id="registerLink"><span class="fa fa-user"></span> Sign Up</a></li>
+        <li><a style="color:white" href="/account/login" id="loginLink"><span class="fa fa-sign-in"></span> Login</a></li>
 
 
 
