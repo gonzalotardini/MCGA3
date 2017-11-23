@@ -4,6 +4,16 @@
 @* no-js - The no JavaScript class is removed by modernizr if JavaScript is available. *@
 <html class="no-js" lang="en">
 <head @(ViewBag.OpenGraph == null ? null : Html.OpenGraphNamespace((OpenGraphMetadata)ViewBag.OpenGraph))>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110061039-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-110061039-1');
+    </script>
+
     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
     <script src="~/Content/ProductCart/productCart.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -187,6 +197,11 @@
             font-weight: bold;
         }
 
+            #a:focus {
+                color: white;
+                background-color: black;
+            }
+
         .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
             background-color: #000000;
         }
@@ -195,6 +210,9 @@
             background-color: #000000;
         }
 
+        .navbar-default .navbar-nav > li > a:focus {
+            background-color: black;
+        }
 
         ul.navbar-nav a:hover {
             color: #fff !important;
@@ -327,7 +345,7 @@
                     <span aria-hidden="true" class="icon-bar"></span>
                     <span aria-hidden="true" class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" role="banner" href="@Url.Action("Index","Home")"><span class="fa fa-star"></span>Commerce</a>
+                <a class="navbar-brand" style="vertical-align:text-top" role="banner" href="@Url.Action("Index","Home")"><img src="~/Content/img/logo.png" height="40" width="200" /> </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -417,12 +435,12 @@
             <div class="col-md-12">
                 <ul class="social-network social-circle">
                     <li><a id="social" href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
-                    <li><a id="social" href="http://www.facebook.com/webempresa.hosting" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                    <li><a id="social" href="http://twitter.com/webempresa" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                    <li><a id="social" href="http://plus.google.com/+webempresa" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a id="social" href="https://ar.linkedin.com/company/mercadolibre-com" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a id="social" href="http://www.youtube.com/webempresa" class="icoLinkedin" title="Linkedin"><i class="fa fa-youtube"></i></a></li>
-                    <li><a id="social" href="https://www.instagram.com/mercadolibre.arg/?hl=es" class="icoLinkedin" title="Linkedin"><i class="fa fa-instagram"></i></a></li>
+                    <li><a id="social" href="https://www.facebook.com/leomessi/" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a id="social" href="https://twitter.com/katyperry" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li><a id="social" href="https://plus.google.com/104560124403688998123" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a id="social" href="https://ar.linkedin.com/company/google" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a id="social" href="https://www.youtube.com/user/PewDiePie" class="icoLinkedin" title="Youtube"><i class="fa fa-youtube"></i></a></li>
+                    <li><a id="social" href="https://www.instagram.com/selenagomez/?hl=es-la" class="icoLinkedin" title="Instagram"><i class="fa fa-instagram"></i></a></li>
                 </ul>
             </div>
 

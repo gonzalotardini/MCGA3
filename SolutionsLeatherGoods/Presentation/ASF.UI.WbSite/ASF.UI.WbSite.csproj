@@ -409,6 +409,7 @@
     <Content Include="Content\img\1.jpg" />
     <Content Include="Content\img\2.jpg" />
     <Content Include="Content\img\3.jpg" />
+    <Content Include="Content\img\logo.png" />
     <Content Include="Scripts\fb.js" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
