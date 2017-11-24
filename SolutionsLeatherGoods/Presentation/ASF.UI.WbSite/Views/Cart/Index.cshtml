@@ -99,9 +99,7 @@
                             @*<li><a id="a" href="@Url.Action("Index","Product")"><span aria-hidden="true" class="btn btn-success fa-shopping-cart"></span> ContinueShopping</a></li>*@
                         </td>
                         <td>
-                            <button type="button" hr class="btn btn-success">
-                                Checkout <span class="glyphicon glyphicon-play"></span>
-                            </button>
+                            @Html.ActionLink("CheckOut","Index", "CheckOut", null, new { @class = "btn btn-success" })
                         </td>
                     </tr>
                 </tbody>

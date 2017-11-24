@@ -356,6 +356,7 @@
                     @*<li><a href="@Url.RouteUrl(HomeControllerRoute.GetFeed)"><span aria-hidden="true" class="fa fa-rss"></span> RSS</a></li>*@
 
                     <li class="dropdown">
+                        @if (User.IsInRole("Admin")) { 
                         <a class="dropdown-toggle" data-toggle="dropdown" id="a" href="#">
                             Admin
                             <span class="caret"></span>
@@ -368,7 +369,7 @@
                             <li><a> @Html.ActionLink("Productos", "Create", "Product")</a></li>
                             <li><a> @Html.ActionLink("pdetail", "ProductDetail", "Product")</a></li>
                         </ul>
-
+                        }
                         @*@if (HttpContext.Current.IsDebuggingEnabled)
                                 {
                                     // if <compilation debug="true"> is set in Web.config.
