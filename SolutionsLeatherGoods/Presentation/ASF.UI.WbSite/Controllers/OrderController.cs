@@ -14,7 +14,15 @@ namespace ASF.UI.WbSite.Controllers
         {
             var email = User.Identity.Name;
             var orderProcess = new OrderProcess();
-            orderProcess.CrearOrderCabecera(email);
+            orderProcess.CrearOrder(email);
+
+            return RedirectToAction("Index","Product");
+        }
+
+
+        public ActionResult Index()
+        {
+
             return View();
         }
     }

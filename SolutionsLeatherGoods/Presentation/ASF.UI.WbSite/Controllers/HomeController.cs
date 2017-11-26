@@ -75,16 +75,20 @@ namespace ASF.UI.WbSite.Controllers
             return View();
         }
 
-        [Route("about", Name = HomeControllerRoute.GetAbout)]
-        public ActionResult About()
+        //[Route("about", Name = HomeControllerRoute.GetAbout)]
+        public ActionResult About(string language)
         {
-            return this.View(HomeControllerAction.About);
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
+            return View();
         }
 
-        [Route("contact", Name = HomeControllerRoute.GetContact)]
-        public ActionResult Contact()
+      
+        public ActionResult Contact(string language)
         {
-            return this.View(HomeControllerAction.Contact);
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
+            return View();
         }
 
         /// <summary>

@@ -24,16 +24,20 @@ namespace ASF.UI.Process
         }
 
 
-        public void CrearOrderCabecera(string email)
+        public void CrearOrder(string email)
         {
             var orderBll = new OrderBusiness();
             var order = new Order();
 
-            order.ClientId = orderBll.ObtenerClientId(email);
-
-
+           orderBll.CreateOrder(email);
+         
         }
 
+        public List<Data.DbContext.Order> ObtenerOrdenes(string email)
+        {
+            var orderBll = new OrderBusiness();
+            return orderBll.ObtenerOrders(email);
+        }
         public void CreateOrder(Order order, OrderDetail orderdetail)
         {
             var response = HttpPost<Order>("rest/Order/Add", order, MediaType.Json);

@@ -56,7 +56,7 @@ namespace ASF.Entities
         /// </summary>
         [DataMember]
         [DisplayName("State")]
-        public int? State { get; set; }
+        public string State { get; set; }
 
         /// <summary>
         /// 

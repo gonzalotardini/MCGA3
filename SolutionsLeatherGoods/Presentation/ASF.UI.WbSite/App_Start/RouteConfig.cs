@@ -39,7 +39,7 @@
             routes.MapRoute(
                 name: "Default",
                 url: "{language}/{controller}/{action}/{id}",
-                defaults: new { controller = "Account", action = "LogIn", id = UrlParameter.Optional, language ="es-AR"});
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, language ="es-AR"});
         }
     }
 }

@@ -2,7 +2,7 @@
 {
     public class Application
     {
-        public const string Name = "Architecture Solutions Foundation";
-        public const string ShortName = "ASF";
+        public const string Name = "Lo de Gonzalo";
+        public const string ShortName = "LDG";
     }
 }

@@ -138,6 +138,9 @@
   <data name="Code" xml:space="preserve">
     <value>Code</value>
   </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
   <data name="Contact" xml:space="preserve">
     <value>Contact</value>
   </data>
@@ -171,6 +174,9 @@
   <data name="Orders" xml:space="preserve">
     <value>Orders</value>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
   <data name="Pay" xml:space="preserve">
     <value>Pay</value>
   </data>
@@ -191,6 +197,15 @@
   </data>
   <data name="Quantity" xml:space="preserve">
     <value>Quantity</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Remember Me</value>
+  </data>
+  <data name="SingUp" xml:space="preserve">
+    <value>SingUp</value>
   </data>
   <data name="Stars" xml:space="preserve">
     <value>Stars</value>

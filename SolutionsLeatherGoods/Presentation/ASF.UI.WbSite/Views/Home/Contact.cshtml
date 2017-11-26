@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Contact";
-    ViewBag.Description = "The Leather Goods contact page.";
-    ViewBag.Author = "Victor Hugo Contreras";
+    ViewBag.Description = "Lo de Gonzalo";
+    ViewBag.Author = "Gonzalo Tardini";
     ViewBag.ReferrerMode = ReferrerMode.OriginWhenCrossOrigin;
     ViewBag.TwitterCard = new SummaryLargeImageTwitterCard("@VContrerasAR");
     ViewBag.OpenGraph = new OpenGraphProfile(
@@ -9,16 +9,16 @@
         new OpenGraphImage(Url.AbsoluteContent("~/content/icons/open-graph-1200x630.png")) { Height = 630, Type = ContentType.Png, Width = 1200 })
     {
         Determiner = OpenGraphDeterminer.Blank,
-        FirstName = "Victor Hugo",
+        FirstName = "Gonzalo",
         Gender = OpenGraphGender.Male,
-        LastName = "Contreras",
+        LastName = "Tardini",
         SiteName = Application.Name,
-        Username = "Victor Hugo Contreras"
+        //Username = "Victor Hugo Contreras"
     };
 }
 
 <header class="page-header">
-    <h1><span aria-hidden="true" class="fa fa-phone"></span> @ViewBag.Title</h1>
+    <h1><span aria-hidden="true" class="fa fa-phone"></span>@ASF.UI.WbSite.Resources.MyText.Contact</h1>
 </header>
 
 <div class="row">

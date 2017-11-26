@@ -124,6 +124,15 @@ namespace ASF.UI.WbSite.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Confirmar Contraseña.
+        /// </summary>
+        public static string ConfirmPassword {
+            get {
+                return ResourceManager.GetString("ConfirmPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Contacto.
         /// </summary>
         public static string Contact {
@@ -223,6 +232,15 @@ namespace ASF.UI.WbSite.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Contraseña.
+        /// </summary>
+        public static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Pagar.
         /// </summary>
         public static string Pay {
@@ -282,6 +300,33 @@ namespace ASF.UI.WbSite.Resources {
         public static string Quantity {
             get {
                 return ResourceManager.GetString("Quantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Registrar.
+        /// </summary>
+        public static string Register {
+            get {
+                return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Recordar.
+        /// </summary>
+        public static string RememberMe {
+            get {
+                return ResourceManager.GetString("RememberMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Registrarse.
+        /// </summary>
+        public static string SingUp {
+            get {
+                return ResourceManager.GetString("SingUp", resourceCulture);
             }
         }
         
