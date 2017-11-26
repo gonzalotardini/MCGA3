@@ -11,15 +11,15 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-12 col-md-10 col-md-offset-1">
+        <div class="col-xs-12 col-xs-10 col-xs-offset-1">
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th class="text-center">Product</th>
-                        <th class="text-left">Descripcion</th>                        
-                        <th class="text-center">Quantity</th>
-                        <th class="text-center">Price</th>
-                        <th class="text-center">Total</th>
+                        <th class="text-center">@ASF.UI.WbSite.Resources.MyText.Product</th>
+                        <th class="text-left">@ASF.UI.WbSite.Resources.MyText.Description</th>                        
+                        <th class="text-center">@ASF.UI.WbSite.Resources.MyText.Quantity</th>
+                        <th class="text-center">@ASF.UI.WbSite.Resources.MyText.Price</th>
+                        <th class="text-center">@ASF.UI.WbSite.Resources.MyText.Total</th>
                         <th> </th>
                     </tr>
                 </thead>
@@ -31,7 +31,7 @@
                   
                     total = total +Convert.ToInt32(subtotal);
                     <tr>
-                        <td class="col-sm-8 col-md-2">
+                        <td class="col-xs-8 col-xs-2">
                             <br />
                             <div>
                                 <img src="@Url.Action("Images", "Cart", new { id = item.ProductId })" style="text-align:center; vertical-align:middle" width="90" height="90" />
@@ -47,23 +47,23 @@
                             </div>
                         </td>
                        
-                        <td class="col-sm-1 col-md-1" style="text-align: center" height="160.56">
+                        <td class="col-md-1 col-md-1" style="text-align: center" height="160.56">
                             <br />
                             <br />
                             
                             <h5><strong>@item.Quantity</strong></h5>
                         </td>
-                        <td class="col-sm-1 col-md-1 text-center">
+                        <td class="col-xs-1 col-xs-1 text-center">
                             <br />
                             <br />
                             <h4> <strong>$@item.Price</strong></h4>
                         </td>
-                        <td class="col-sm-1 col-md-1 text-center">
+                        <td class="col-xs-1 col-xs-1 text-center">
                             <br />
                             <br />                            
                             <h5><strong>$@subtotal</strong></h5>
                         </td>
-                        <td class="col-sm-1 col-md-1">
+                        <td class="col-xs-1 col-xs-1">
                             <br />
                             <br />                          
                             @*@Html.ActionLink("Detalles", "ProductDetail", new { id = item.Id }, new { @class = "btn btn-primary" })*@
@@ -82,7 +82,7 @@
                         <td>   </td>
                         <td>   </td>
                         <td>   </td>
-                        <td><h3>Total</h3></td>
+                        <td><h3>@ASF.UI.WbSite.Resources.MyText.Total</h3></td>
                         <td class="text-right"><h3><strong>$@total</strong></h3></td>
                     </tr>
                     <tr>
@@ -94,12 +94,12 @@
                             @*<a href="@Url.Action("Index", "Product")" class="btn btn-primary">                               
                                 <span id="span" class="fa fa-shopping-cart"> Continue Shopping</span>
                             </a>*@
-                            @Html.ActionLink("Continue Shopping", "Index", "Product",null, new { @class = "btn btn-info" });
+                            @Html.ActionLink(@ASF.UI.WbSite.Resources.MyText.ContinueShopping, "Index", "Product",null, new { @class = "btn btn-info" })
 
                             @*<li><a id="a" href="@Url.Action("Index","Product")"><span aria-hidden="true" class="btn btn-success fa-shopping-cart"></span> ContinueShopping</a></li>*@
                         </td>
                         <td>
-                            @Html.ActionLink("CheckOut","Index", "CheckOut", null, new { @class = "btn btn-success" })
+                            @Html.ActionLink(@ASF.UI.WbSite.Resources.MyText.CheckOut, "Index", "CheckOut", null, new { @class = "btn btn-success" })
                         </td>
                     </tr>
                 </tbody>

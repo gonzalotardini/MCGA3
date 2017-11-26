@@ -1,4 +1,6 @@
 ﻿@using ASF.UI.WbSite.Constants.HomeController
+@using ASF.UI.WbSite
+
 <!DOCTYPE html>
 @* lang - The language of the page. *@
 @* no-js - The no JavaScript class is removed by modernizr if JavaScript is available. *@
@@ -6,6 +8,7 @@
 <head @(ViewBag.OpenGraph == null ? null : Html.OpenGraphNamespace((OpenGraphMetadata)ViewBag.OpenGraph))>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110061039-1"></script>
+
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -14,13 +17,12 @@
         gtag('config', 'UA-110061039-1');
     </script>
 
-    
 
-  
+
     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
-    <script src="~/Content/ProductCart/productCart.js"></script>  
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="~/Content/ProductCart/productCart.js"></script>
+
+ 
 
 
     @* The order of the tags in the head is important for best performance and compatibility. *@
@@ -335,12 +337,13 @@
 
 </head>
 <body>
-    
-   
+
+
     @* Skip to main content link for people who use screen readers. sr-only makes this only visible to screen readers.
         See http://a11yproject.com/posts/skip-nav-links/. *@
     <a href="#main" class="sr-only sr-only-focusable">Skip to main content</a>
     @* nav - The main navigation for the site. *@
+    
     <nav class="navbar navbar-expand-sm bg-secondary navbar-dark" role="navigation" id="Nav">
         <div class="container">
             <div class="navbar-header">
@@ -353,46 +356,37 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-
-                    <li><a id="a" href="@Url.Action("Index","Product")"><span aria-hidden="true" class="fa fa-shopping-cart"></span> Productos</a></li>
-                    <li><a id="a" href="@Url.RouteUrl(HomeControllerRoute.GetAbout)"><span aria-hidden="true" class="fa fa-user"></span> About</a></li>
+         
+                    <li><a id="a" href="@Url.Action("Index","Product")"><span aria-hidden="true" class="fa fa-shopping-cart"></span> @ASF.UI.WbSite.Resources.MyText.Products</a></li>
+                    <li><a id="a" href="@Url.Action("About","Home")"><span aria-hidden="true" class="fa fa-user"></span> @ASF.UI.WbSite.Resources.MyText.About</a></li>
+                    @*<li><a id="a" href="@Url.RouteUrl(HomeControllerRoute.GetAbout)"><span aria-hidden="true" class="fa fa-user"></span> About</a></li>*@
                     <li><a id="a" href="@Url.RouteUrl(HomeControllerRoute.GetContact)"><span aria-hidden="true" class="fa fa-phone"></span> Contact</a></li>
                     @*<li><a href="@Url.RouteUrl(HomeControllerRoute.GetFeed)"><span aria-hidden="true" class="fa fa-rss"></span> RSS</a></li>*@
 
-                    <li class="dropdown">
-                        @if (User.IsInRole("Admin")) { 
-                        <a class="dropdown-toggle" data-toggle="dropdown" id="a" href="#">
-                            Admin
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a> @Html.ActionLink("Categorias", "Index", "Category")</a></li>
-                            <li><a> @Html.ActionLink("Paises", "Index", "Country")</a></li>
-                            <li><a> @Html.ActionLink("Clientes", "Index", "Client")</a></li>
-                            <li><a> @Html.ActionLink("Proveedores", "Index", "Dealer")</a></li>
-                            <li><a> @Html.ActionLink("Productos", "Create", "Product")</a></li>
-                            <li><a> @Html.ActionLink("pdetail", "ProductDetail", "Product")</a></li>
-                        </ul>
-                        }
-                        @*@if (HttpContext.Current.IsDebuggingEnabled)
-                                {
-                                    // if <compilation debug="true"> is set in Web.config.
 
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown"><span aria-hidden="true" class="fa fa-cogs"></span> Debug <span aria-hidden="true" class="caret"></span></a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="/@ConfigurationManager.AppSettings["elmah.mvc.route"]"><span aria-hidden="true" class="fa fa-life-ring"></span> Elmah</a></li>
-                                        <li><a href="/glimpse.axd"><span aria-hidden="true" class="fa fa-line-chart"></span> Glimpse</a></li>
-                                        <li><a href="/trace.axd"><span aria-hidden="true" class="fa fa-heart"></span> Tracing</a></li>
-                                    </ul>
-                                </li>
-                            }*@
+                    <li class="dropdown">
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a class="dropdown-toggle" data-toggle="dropdown" id="a" href="#">
+                                Admin
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a> @Html.ActionLink("Categorias", "Index", "Category")</a></li>
+                                <li><a> @Html.ActionLink("Paises", "Index", "Country")</a></li>
+                                <li><a> @Html.ActionLink("Clientes", "Index", "Client")</a></li>
+                                <li><a> @Html.ActionLink("Proveedores", "Index", "Dealer")</a></li>
+                                <li><a> @Html.ActionLink("Productos", "Create", "Product")</a></li>
+                                <li><a> @Html.ActionLink("pdetail", "ProductDetail", "Product")</a></li>
+                            </ul>
+                        }
+
+
+                    </li>
+
                 </ul>
 
-
-
-
-                @Html.Partial("_LoginPartial");
+                @Html.Partial("_LoginPartial")
                 @*<form action="@Url.RouteUrl(HomeControllerRoute.GetSearch)" class="navbar-form navbar-right" method="get" role="search">
                         <div class="input-group">
                             <input aria-label="Search" class="form-control" maxlength="2048" name="query" placeholder="Search" title="Search" type="text">
@@ -431,12 +425,12 @@
         <footer role="contentinfo">
             <p>&copy; @DateTime.Now.Year - @Application.Name</p>
             @*<ul class="social-footer pull-right">
-                <li><a class="iconfb" href="http://www.facebook.com/webempresa.hosting">Facebook</a></li>
-                <li><a class="icontw" href="http://twitter.com/webempresa">Tiwtter</a></li>
-                <li><a class="icongg" href="http://plus.google.com/+webempresa">Google +</a></li>
-                <li><a class="iconyt" href="http://www.youtube.com/webempresa">Youtube</a></li>
-                <li><a class="iconskype" href="#">Skype</a></li>
-            </ul>*@
+                    <li><a class="iconfb" href="http://www.facebook.com/webempresa.hosting">Facebook</a></li>
+                    <li><a class="icontw" href="http://twitter.com/webempresa">Tiwtter</a></li>
+                    <li><a class="icongg" href="http://plus.google.com/+webempresa">Google +</a></li>
+                    <li><a class="iconyt" href="http://www.youtube.com/webempresa">Youtube</a></li>
+                    <li><a class="iconskype" href="#">Skype</a></li>
+                </ul>*@
             <div class="col-md-12">
                 <ul class="social-network social-circle">
                     <li><a id="social" href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>

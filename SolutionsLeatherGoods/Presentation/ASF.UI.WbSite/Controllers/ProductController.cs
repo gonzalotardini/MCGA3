@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 using ASF.Entities;
 using System.IO;
+using System.Threading;
+using System.Globalization;
 
 namespace ASF.UI.WbSite.Controllers
 {
@@ -41,15 +43,20 @@ namespace ASF.UI.WbSite.Controllers
 
         // GET: Product
         [Authorize]
-        public ActionResult Index()
+        public ActionResult Index(string language)
         {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
+
             var productProcess = new ProductProcess();
             var listaProduct = productProcess.SelectAll();
             return View(listaProduct);
         }
 
-        public ActionResult ProductDetail(int id)
+        public ActionResult ProductDetail(int id,string language)
         {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
 
             var context = new LeatherGoodsEntities();
             //byte[] imageData = context.Product.FirstOrDefault(i => i.Id == id)?.Image;
@@ -83,8 +90,11 @@ namespace ASF.UI.WbSite.Controllers
 
 
         [HttpGet]
-        public ActionResult Create()
+        public ActionResult Create(string language)
         {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
+
             var listaProduct = new List<Entities.Product>();
             var dealerProcess = new DelaerProcess();
 

@@ -2,7 +2,9 @@
 using ASF.UI.Process;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -12,8 +14,11 @@ namespace ASF.UI.WbSite.Controllers
     {
         // GET: Cart
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(string language)
         {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
+
             var email = User.Identity.Name;
             var cartProcess = new CartProcess();
             var cartCompleta = cartProcess.ObtenerCartCompleta(email);

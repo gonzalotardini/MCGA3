@@ -6,6 +6,7 @@ using ASF.UI.WbSite.Services.OpenSearch;
 using ASF.UI.WbSite.Services.Robots;
 using ASF.UI.WbSite.Services.Sitemap;
 using Microsoft.AspNet.Identity;
+using System.Globalization;
 
 namespace ASF.UI.WbSite.Controllers
 {
@@ -56,8 +57,8 @@ namespace ASF.UI.WbSite.Controllers
 
         #endregion
 
-        [Route("", Name = HomeControllerRoute.GetIndex)]
-        public ActionResult Index()
+        //[Route("", Name = HomeControllerRoute.GetIndex)]
+        public ActionResult Index(string language)
         {
             // ***** sender email credentials (gamil) *****/
             //var msg = new IdentityMessage
@@ -68,7 +69,10 @@ namespace ASF.UI.WbSite.Controllers
             //};
             //this.emailService.SendAsync(msg);
 
-            return this.View(HomeControllerAction.Index);
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
+
+            return View();
         }
 
         [Route("about", Name = HomeControllerRoute.GetAbout)]

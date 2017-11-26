@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Create4";
+    ViewBag.Title = "Create";
 }
 
 @using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -10,44 +10,44 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            <label class="control-label col-md-3">Titulo</label>
+            <label class="control-label col-md-3">@ASF.UI.WbSite.Resources.MyText.Title</label>
             <div class="col-md-6">
                 <input class="form-control" type="text" name="Product.Title" />
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-md-3">Descripcion</label>
+            <label class="control-label col-md-3">@ASF.UI.WbSite.Resources.MyText.Description</label>
             <div class="col-md-6">
                 <input class="form-control" type="text" name="Product.Description" />
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-md-3">Dealer</label>
+            <label class="control-label col-md-3">@ASF.UI.WbSite.Resources.MyText.Dealer</label>
             <div class="col-md-6">
 
                 @Html.DropDownList("Product.DealerId", new SelectList(ViewBag.dealer, "Id", "Description"), new { @class = "form-control col-md-2" })
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-md-3">Imagen</label>
+            <label class="control-label col-md-3">Image</label>
             <div class="col-md-6">
                 <input type="file" name="file" class="file" />
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-md-3">Precio</label>
+            <label class="control-label col-md-3">@ASF.UI.WbSite.Resources.MyText.Price</label>
             <div class="col-md-6">
                 <input class="form-control" type="text" name="Product.Price" />
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-md-3">Qty Sold</label>
+            <label class="control-label col-md-3">@ASF.UI.WbSite.Resources.MyText.QtySold</label>
             <div class="col-md-6">
                 <input class="form-control" type="text" name="Product.QuantitySold" />
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-md-3">Starts</label>
+            <label class="control-label col-md-3">@ASF.UI.WbSite.Resources.MyText.Stars</label>
             <div class="col-md-6">
                 <input class="form-control" type="text" name="Product.AvgStars" />
             </div>

@@ -18,7 +18,7 @@
 
             #carticon {
                 margin-top:0.4cm;
-                padding-right:3cm;
+                padding-right:1cm;
             }
 
             #cartContent {
@@ -42,6 +42,13 @@
         
         <ul class="nav navbar-nav navbar-right">
             <li style="font-size:1.5em;" id="carticon" class="fa fa-shopping-cart"></li>
+            
+            <li>
+                @Html.ActionLink("ESP ",ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language="es-AR"}, new { style = "color: white" })
+            </li>
+            <li>
+               @Html.ActionLink("ENG ", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "en-US" }, new { style = "color: white" })
+            </li>
             <li id="loginLink">
                 @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", null, new { style = "color: white" })
             </li>
@@ -54,7 +61,7 @@
         <div id="cartContent" class="jumbotron">
             <ul id="lista"></ul>
 
-            <a class="btn btn-success" href=@Url.Action("Index", "Cart")>View Cart</a>
+            <a class="btn btn-success" href=@Url.Action("Index", "Cart")>@ASF.UI.WbSite.Resources.MyText.ViewCart</a>
 
         </div>
     }
@@ -67,7 +74,7 @@ else
 
             <li>@Html.ActionLink("Log in", "Login", "Account", new { area = "" }, htmlAttributes: new { id = "loginLink" })</li>*@
 
-
+        
         <li><a style="color:white" href="/account/register/" id="registerLink"><span class="fa fa-user"></span> Sign Up</a></li>
         <li><a style="color:white" href="/account/login" id="loginLink"><span class="fa fa-sign-in"></span> Login</a></li>
 
