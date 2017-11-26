@@ -10,6 +10,7 @@ using ASF.UI.WbSite.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using System.Threading;
 
 namespace ASF.UI.WbSite.Controllers
 {
@@ -56,8 +57,10 @@ namespace ASF.UI.WbSite.Controllers
         //
         // GET: /Account/Login
         [AllowAnonymous]
-        public ActionResult Login(string returnUrl)
+        public ActionResult Login(string returnUrl, string language)
         {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }

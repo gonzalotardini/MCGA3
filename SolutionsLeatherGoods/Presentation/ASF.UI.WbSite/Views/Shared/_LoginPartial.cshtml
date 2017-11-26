@@ -73,10 +73,15 @@ else
         @*<li>@Html.ActionLink("Registrar", "Register", "Account", new { area = "" },htmlAttributes: new { id = "registerLink" } )</li>
 
             <li>@Html.ActionLink("Log in", "Login", "Account", new { area = "" }, htmlAttributes: new { id = "loginLink" })</li>*@
-
+        <li>
+            @Html.ActionLink("ESP ", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "es-AR" }, new { style = "color: white" })
+        </li>
+        <li>
+            @Html.ActionLink("ENG ", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "en-US" }, new { style = "color: white" })
+        </li>
         
-        <li><a style="color:white" href="/account/register/" id="registerLink"><span class="fa fa-user"></span> Sign Up</a></li>
-        <li><a style="color:white" href="/account/login" id="loginLink"><span class="fa fa-sign-in"></span> Login</a></li>
+        <li><a style="color:white" href="@Url.Action("Register","Account")" id="registerLink"><span class="fa fa-user"></span> Sign Up</a></li>
+        <li><a style="color:white" href=@Url.Action("LogIn","Account") id="loginLink"><span class="fa fa-sign-in"></span> Login</a></li>
 
 
 

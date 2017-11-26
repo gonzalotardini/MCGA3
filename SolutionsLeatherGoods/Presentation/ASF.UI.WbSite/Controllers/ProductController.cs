@@ -42,15 +42,26 @@ namespace ASF.UI.WbSite.Controllers
 
 
         // GET: Product
-        [Authorize]
+        
         public ActionResult Index(string language)
         {
             Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
 
-            var productProcess = new ProductProcess();
-            var listaProduct = productProcess.SelectAll();
-            return View(listaProduct);
+            if (User.Identity.IsAuthenticated)
+            {
+                var productProcess = new ProductProcess();
+                var listaProduct = productProcess.SelectAll();
+                return View(listaProduct);
+            }
+
+            else
+            { 
+
+                return RedirectToAction("LogIn", "Account");
+            }
+            
+            
         }
 
         public ActionResult ProductDetail(int id,string language)
